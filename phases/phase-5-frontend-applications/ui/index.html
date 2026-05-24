@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AXONS Infrastructure Console</title>
+    <link rel="stylesheet" href="styles.css?v=1" />
+</head>
+
+<body>
+    <div class="shell">
+        <header class="hero">
+            <div>
+                <p class="eyebrow">Phase 5 Prototype</p>
+                <h1>AXONS Infrastructure Console</h1>
+                <p class="intro">
+                    A guided, no-code-style experience for creating a local Fabric network, defining organizations,
+                    and onboarding members before the backend is fully connected to real chaincode.
+                </p>
+            </div>
+            <div class="status-card">
+                <div>
+                    <span class="label">Backend</span>
+                    <p id="backendStatus">Checking...</p>
+                </div>
+                <div>
+                    <span class="label">Demo URL</span>
+                    <p id="backendUrl">/</p>
+                </div>
+                <div>
+                    <span class="label">Demo sync</span>
+                    <p id="actionStatus" class="action-status">Waiting for your first demo action.</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="grid">
+            <article class="panel">
+                <div class="panel-heading">
+                    <h2>Create network</h2>
+                    <span class="badge">Infrastructure</span>
+                </div>
+                <form id="networkForm" class="stack">
+                    <label>
+                        Network name
+                        <input id="networkName" type="text" value="AXONS Local Fabric" required />
+                    </label>
+                    <label>
+                        Channel name
+                        <input id="channelName" type="text" value="traceabilitychannel" required />
+                    </label>
+                    <label>
+                        Orderer host
+                        <input id="ordererHost" type="text" value="orderer.example.com" required />
+                    </label>
+                    <label>
+                        Peer count
+                        <input id="peerCount" type="number" min="1" value="1" required />
+                    </label>
+                    <label>
+                        Environment
+                        <input id="environment" type="text" value="Local Docker" required />
+                    </label>
+                    <button type="submit">Create network</button>
+                </form>
+            </article>
+
+            <article class="panel">
+                <div class="panel-heading">
+                    <h2>Create organization</h2>
+                    <span class="badge">Governance</span>
+                </div>
+                <form id="orgForm" class="stack">
+                    <label>
+                        Organization name
+                        <input id="organizationName" type="text" placeholder="Farm Org" required />
+                    </label>
+                    <label>
+                        Organization type
+                        <input id="organizationType" type="text" value="Producer" required />
+                    </label>
+                    <label>
+                        Admin name
+                        <input id="adminName" type="text" placeholder="Jordan Lee" required />
+                    </label>
+                    <label>
+                        Admin email
+                        <input id="adminEmail" type="email" placeholder="jordan@example.com" required />
+                    </label>
+                    <button type="submit">Add organization</button>
+                </form>
+            </article>
+
+            <article class="panel">
+                <div class="panel-heading">
+                    <h2>Add member</h2>
+                    <span class="badge">Membership</span>
+                </div>
+                <form id="memberForm" class="stack">
+                    <label>
+                        Organization
+                        <select id="organizationSelect"></select>
+                    </label>
+                    <label>
+                        Member name
+                        <input id="memberName" type="text" placeholder="Alex Morgan" required />
+                    </label>
+                    <label>
+                        Member role
+                        <input id="memberRole" type="text" value="Operator" required />
+                    </label>
+                    <label>
+                        Member email
+                        <input id="memberEmail" type="email" placeholder="alex@example.com" required />
+                    </label>
+                    <button type="submit">Add member</button>
+                </form>
+            </article>
+        </section>
+
+        <section class="grid secondary-grid">
+            <article class="panel wide-panel">
+                <div class="panel-heading">
+                    <h2>Fabric readiness plan</h2>
+                    <span class="badge">Live demo</span>
+                </div>
+                <div class="diagram-layout">
+                    <div id="diagramCanvas" class="diagram-canvas"></div>
+                    <div id="diagramSummary" class="diagram-summary"></div>
+                </div>
+                <div id="readinessContent" class="readiness-content"></div>
+            </article>
+
+            <article class="panel">
+                <div class="panel-heading">
+                    <h2>Organizations</h2>
+                    <span class="badge">Current state</span>
+                </div>
+                <div id="organizationList" class="list"></div>
+            </article>
+
+            <article class="panel">
+                <div class="panel-heading">
+                    <h2>Members</h2>
+                    <span class="badge">Current state</span>
+                </div>
+                <div id="memberList" class="list"></div>
+            </article>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -383,14 +383,36 @@ Prepare production deployment architecture.
 # Current Progress Tracking
 
 ```text
-[ ] Phase 0 — Architecture & Design
-[ ] Phase 1 — Local Fabric Network
+[x] Phase 0 — Architecture & Design
+[x] Phase 1 — Local Fabric Network
 [ ] Phase 2 — Smart Contract Development
 [ ] Phase 3 — ASP.NET Core Integration
 [ ] Phase 4 — QR Traceability System
 [ ] Phase 5 — Consortium Governance
 [ ] Phase 6 — Production Infrastructure
 ```
+
+## What we have done
+
+- Completed the architecture and design work in the Phase 0 docs, including blockchain topology, governance, and traceability flow.
+- Built a Phase 1 backend prototype in ASP.NET Core with Docker support.
+- Added a guided frontend prototype that demonstrates network, organization, and member setup in a no-code style.
+- Confirmed the backend can serve the UI and demo endpoints locally, and the frontend can target the backend when opened directly from disk.
+- Added a local Docker-based Fabric bootstrap path with configuration and documentation support.
+
+## What we are doing next
+
+- Connect the prototype to real Fabric CA enrollment and identity flow.
+- Replace the in-memory infrastructure demo state with real Fabric-backed operations.
+- Build the next stage of chaincode and transaction lifecycle support.
+- Continue the backend integration path so the UI can move from demo state to real blockchain behavior.
+
+## Practical next milestone
+
+1. Finish real Fabric identity and enrollment flow.
+2. Add chaincode package/install/approve/commit workflow.
+3. Wire the backend to Fabric Gateway operations.
+4. Keep the frontend demo intact while it grows into a real operational console.
 
 ---
 
@@ -442,3 +464,4 @@ Planned future capabilities:
 # Long-Term Goal
 
 Become an internally operated blockchain platform provider for enterprise food traceability and supply chain verification.
+

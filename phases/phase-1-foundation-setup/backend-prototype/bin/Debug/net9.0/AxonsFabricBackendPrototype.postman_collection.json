@@ -1,0 +1,116 @@
+{
+    "info": {
+        "name": "AXONS Fabric Backend Prototype",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": "Postman collection for the AXONS backend-first Fabric prototype."
+    },
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:5257"
+        },
+        {
+            "key": "traceabilityId",
+            "value": "TR-0001"
+        }
+    ],
+    "item": [
+        {
+            "name": "Health",
+            "item": [
+                {
+                    "name": "GET /",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Traceability",
+            "item": [
+                {
+                    "name": "POST /traceability/records",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"traceabilityId\": \"{{traceabilityId}}\",\n  \"productType\": \"RetailPackage\",\n  \"ownerOrg\": \"Retail\",\n  \"parentTraceabilityId\": \"TR-0000\",\n  \"status\": \"Created\",\n  \"metadata\": {\n    \"batchCode\": \"BATCH-001\",\n    \"location\": \"Bangkok\"\n  }\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/traceability/records",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "traceability",
+                                "records"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET /traceability/records/:traceabilityId",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/traceability/records/{{traceabilityId}}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "traceability",
+                                "records",
+                                "{{traceabilityId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Verification",
+            "item": [
+                {
+                    "name": "POST /traceability/verify/:traceabilityId",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/traceability/verify/{{traceabilityId}}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "traceability",
+                                "verify",
+                                "{{traceabilityId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}

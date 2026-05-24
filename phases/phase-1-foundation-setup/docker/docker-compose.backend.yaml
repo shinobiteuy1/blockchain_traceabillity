@@ -1,0 +1,14 @@
+services:
+  axons-backend:
+    build:
+      context: ../..
+      dockerfile: phases/phase-1-foundation-setup/backend-prototype/Dockerfile
+    container_name: axons-backend
+    ports:
+      - "5000:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:8080
+      Fabric__GatewayProfilePath: /app/config/local/connection-profile.json
+      Fabric__UseLocalDockerNetwork: "true"
+    restart: unless-stopped
